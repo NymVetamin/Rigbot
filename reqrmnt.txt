@@ -1,0 +1,6 @@
+requests
+schedule
+pyTelegramBotAPI
+selenium
+webdriver_manager
+pyinstaller
