@@ -15,7 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.utils import ChromeType
+from webdriver_manager.core.utils import ChromeType
 
 
 os.chdir(bot_settings.base_dir)
