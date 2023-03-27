@@ -516,11 +516,15 @@ def buttons(message):
 def scheduler(message ,common_hr):
 	schedule.every().hour.do(auto_ip_change, message)
 	schedule.every().day.at('17:00').do(check_gminer, message)
-	schedule.every(15).minutes.do(smart_status, message, True)
-	schedule.every(10).minutes.do(average_income_calc, message, get_wallet(message, True))
-	while True:
-		schedule.run_pending()
-		time.sleep(1)
+	# schedule.every(15).minutes.do(smart_status, message, True)
+	# schedule.every(10).minutes.do(average_income_calc, message, get_wallet(message, True))
+	try:
+		while True:
+			schedule.run_pending()
+			time.sleep(1)
+	except Exception as e:
+		print (f'scheduler down, restarting...{e}')
+		
 
 avg_income = 0
 avg_income_list = [0] * 30
@@ -535,6 +539,7 @@ def message_check(message):
 		buttons(message)
 		if not schedule_started:
 			t = Thread(target = scheduler, args = (message, bot_settings.common_hr))
+			t.daemon = True
 			t.start()
 			schedule_started = True
 	elif message.text == 'Hashrate':
