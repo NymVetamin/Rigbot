@@ -7,7 +7,6 @@ import telebot
 import sqlite3
 from telebot import types
 import bot_settings
-import os.path
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -16,10 +15,6 @@ from selenium.webdriver.support import expected_conditions as ec
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.core.utils import ChromeType
-
-
-os.chdir(bot_settings.base_dir)
-
 
 def get_json(message, rig, qdev = False):
 	try:
