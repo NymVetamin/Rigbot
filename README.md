@@ -11,3 +11,9 @@
   <li>And a lot of other useful things</li>
 </ul>
 <h2>Some screenshots</h2>
+<div>
+  <img src="/docs/IMG_5225.JPEG" width="24%" height="24%" align="top"/>
+  <img src="/docs/IMG_5226.JPEG" width="24%" height="24%" align="top"/>
+  <img src="/docs/IMG_5227.JPEG" width="24%" height="24%" align="top"/>
+  <img src="/docs/IMG_5228.JPEG" width="24%" height="24%" align="top"/>
+</div>
