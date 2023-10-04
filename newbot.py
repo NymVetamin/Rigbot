@@ -14,7 +14,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.core.utils import ChromeType
 
 def get_json(message, rig, qdev = False):
 	try:
@@ -66,7 +65,7 @@ def average_income_calc(message, wallet, count = 0):
 	chrome_options.add_argument('--no-sandbox')
 	chrome_options.add_argument('--disable-dev-shm-usage')
 	try:
-		browser = webdriver.Chrome(service = Service(ChromeDriverManager(chrome_type = ChromeType.CHROMIUM).install()), options = chrome_options)
+		browser = webdriver.Chrome(service = Service(ChromeDriverManager().install()), options = chrome_options)
 		browser.get(f'https://etc.2miners.com/ru/account/{wallet}')
 		time.sleep(5)
 		pay_for_day_elem = browser.find_element(By.XPATH, '//*[@id="miner-info"]/div/div[3]/div/div/div[2]/div[1]/div[2]/span[1]')
@@ -100,7 +99,7 @@ def check_gminer(message, count = 0):
 	chrome_options.add_argument('--no-sandbox')
 	chrome_options.add_argument('--disable-dev-shm-usage')
 	try:
-		browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type = ChromeType.CHROMIUM).install()), options = chrome_options)
+		browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options = chrome_options)
 	except Exception:
 		bot.send_message(message.chat.id,f'Error install driver',parse_mode='html')
 		return
@@ -261,7 +260,7 @@ def difficulty(message):
 	chrome_options.add_argument('--no-sandbox')
 	chrome_options.add_argument('--disable-dev-shm-usage')
 	try:
-		browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()), options=chrome_options)
+		browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 		browser.get('https://2miners.com/etc-stats/')
 		time.sleep(3)
 		difficulty_elem = browser.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div[6]/div/div/div[2]/span/span')
@@ -409,7 +408,7 @@ def ip_change_st2(message):
 		chrome_options.add_argument('--headless')
 		chrome_options.add_argument('--no-sandbox')
 		chrome_options.add_argument('--disable-dev-shm-usage')
-		browser = webdriver.Chrome(service = Service(ChromeDriverManager(chrome_type = ChromeType.CHROMIUM).install()), options = chrome_options)
+		browser = webdriver.Chrome(service = Service(ChromeDriverManager().install()), options = chrome_options)
 		try:
 			browser.get('http://admin:admin@192.168.1.1')
 		except Exception:
@@ -443,7 +442,7 @@ def ip_change_st1(message):
 	chrome_options.add_argument('--headless')
 	chrome_options.add_argument('--no-sandbox')
 	chrome_options.add_argument('--disable-dev-shm-usage')
-	browser = webdriver.Chrome(service = Service(ChromeDriverManager(chrome_type = ChromeType.CHROMIUM).install()), options = chrome_options)
+	browser = webdriver.Chrome(service = Service(ChromeDriverManager().install()), options = chrome_options)
 	try:
 		browser.get('http://admin:admin@192.168.1.1')
 	except Exception:
@@ -468,7 +467,7 @@ def auto_ip_change(message):
 	chrome_options.add_argument('--headless')
 	chrome_options.add_argument('--no-sandbox')
 	chrome_options.add_argument('--disable-dev-shm-usage')
-	browser = webdriver.Chrome(service = Service(ChromeDriverManager(chrome_type = ChromeType.CHROMIUM).install()), options = chrome_options)
+	browser = webdriver.Chrome(service = Service(ChromeDriverManager().install()), options = chrome_options)
 	try:
 		browser.get('http://admin:admin@192.168.1.1')
 	except Exception:
